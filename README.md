@@ -17,6 +17,8 @@ Quick start
 
 ### Build
 
+    npm install
+    npm install -g grunt-cli
     grunt
 
 You'll find the build bndr.js and bndr.min.js in the dist folder.
