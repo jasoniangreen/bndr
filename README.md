@@ -13,12 +13,11 @@ Quick start
 ### Install
     
     git clone git@github.com:jasoniangreen/bndr.git
-
+    npm install
+    npm install -g grunt-cli
 
 ### Build
 
-    npm install
-    npm install -g grunt-cli
     grunt
 
 You'll find the build bndr.js and bndr.min.js in the dist folder.
