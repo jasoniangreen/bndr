@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Component binding with Angular style option passing</title>
+    </head>
+    <body>
+
+        <p>Checkout the code for more</p>
+
+        <div my-test
+             my-test-interval="34"
+             my-test-text="some text"></div>
+
+        <div my-test
+             my-test-interval="40"
+             my-test-other-opt="wow"
+             my-test-text="some text blah"></div>
+
+        <div my-other
+             my-other-interval="36"
+             my-other-text="some other text"></div>
+
+        <script src="../dist/bndr.min.js"></script>
+        <script>
+            function MyTest(el, options) {
+                this._options = options;
+                this.el = el;
+                el.innerHTML = JSON.stringify(options);
+            };
+
+            function MyOther(el, options) {
+                this._options = options;
+                this.el = el;
+                el.innerHTML = JSON.stringify(options);
+            };
+
+            bndr.registerClass('my-test', MyTest);
+            bndr.registerClass('my-other', MyOther);
+            bndr();
+        </script>
+
+    </body>
+</html>

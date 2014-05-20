@@ -1,0 +1,20 @@
+{
+  "name": "bndr",
+  "version": "0.0.1",
+  "description": "A super simple library for binding javascript components to DOM.",
+  "main": "lib/bndr.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jasoniangreen/bndr.git"
+  },
+  "author": "Jason Green",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasoniangreen/bndr/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
