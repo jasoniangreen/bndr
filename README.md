@@ -6,6 +6,21 @@ And that's it really, no dependencies, no other structure, code how you like.
 
 All bndr gives you is a simple and familiar method of binding and configuring js instances with the dom.
 
+
+Quick start
+-----------
+
+### Install
+    
+    git clone git@github.com:jasoniangreen/bndr.git
+
+
+### Build
+
+    grunt
+
+You'll find the build bndr.js and bndr.min.js in the dist folder.
+
 ### Try
 
 HTML
