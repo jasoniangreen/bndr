@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                     'lib/**/*.js',
                     'Gruntfile.js'
                 ],
-                tasks: ['browserify']
+                tasks: ['default']
             }
         },
         uglify: {
