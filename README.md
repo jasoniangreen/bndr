@@ -37,14 +37,16 @@ HTML
 
 JS
 ```javascript
-function MyTest(el, options) {
+function MyTest(el, name, options) {
     this._options = options;
+    this._name = name;
     this.el = el;
     el.innerHTML = JSON.stringify(options);
 };
 
-function MyOther(el, options) {
+function MyOther(el, name, options) {
     this._options = options;
+    this._name = name;
     this.el = el;
     el.innerHTML = JSON.stringify(options);
 };
