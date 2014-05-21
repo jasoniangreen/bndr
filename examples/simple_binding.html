@@ -41,7 +41,9 @@
 
             bndr.registerClass('my-test', MyTest);
             bndr.registerClass('my-other', MyOther);
-            bndr();
+            bndr(function(components) {
+                console.log(components);
+            });
         </script>
 
     </body>
