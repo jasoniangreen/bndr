@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Component binding with Angular style option passing</title>
+    </head>
+    <body>
+
+        <p>Clocks</p>
+
+        <div bndr-clock
+             bndr-clock-offset="-2"
+             bndr-clock-title="Los Angeles"></div>
+
+        <div bndr-clock
+             bndr-clock-offset="-1"
+             bndr-clock-title="London"></div>
+
+        <div bndr-clock
+             bndr-clock-offset="0"
+             bndr-clock-title="Sydney"></div>
+
+        <div bndr-clock
+             bndr-clock-offset="1"
+             bndr-clock-title="Hong Kong"></div>
+
+        <div bndr-clock
+             bndr-clock-offset="2"
+             bndr-clock-title="New York"></div>
+
+        <div bndr-clock
+             bndr-clock-offset="3"
+             bndr-clock-title="Los Angeles"></div>
+
+        <div bndr-clock
+             bndr-clock-offset="4"
+             bndr-clock-title="Tokyo"></div>
+             
+
+        <script src="../dist/bndr.min.js"></script>
+        <script>
+            function BndrClock(el, options) {
+                this._options = options;
+                this.el = el;
+                this._timer = setInterval(setTime, 1000);
+
+                var offset = parseInt(options.offset);
+                var title = options.title;
+                var self = this;
+
+                setTime();
+
+                function setTime() {
+                    var now = new Date();
+                    now.setHours(now.getHours() + offset);
+                    var timeStr = [now.getHours(), now.getMinutes(), now.getSeconds()].join(':') ;
+                    self.el.innerHTML = title + ': ' + timeStr;
+                }
+            };
+
+
+            bndr.registerClass('bndr-clock', BndrClock);
+            bndr();
+        </script>
+
+    </body>
+</html>

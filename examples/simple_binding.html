@@ -13,7 +13,10 @@
              my-test-interval="34"
              my-test-text="some text"></div>
 
-        <div my-test
+        <!-- Optional string passed to class attribute will act as
+             a unique name which can be used to retrieve the component
+             using bndr.getComponent('myComp'); -->
+        <div my-test="myComp"
              my-test-interval="40"
              my-test-other-opt="wow"
              my-test-text="some text blah"></div>
