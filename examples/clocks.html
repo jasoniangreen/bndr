@@ -40,8 +40,9 @@
 
         <script src="../dist/bndr.bundle.js"></script>
         <script>
-            function BndrClock(el, options) {
+            function BndrClock(el, name, options) {
                 this._options = options;
+                this._name = name;
                 this.el = el;
                 this._timer = setInterval(setTime, 1000);
 
