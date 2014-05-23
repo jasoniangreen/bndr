@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>bndr.js - Multiple components</title>
+    </head>
+    <body>
+
+        <p>There is no reason you can't have two components affecting the same element. Try clicking the text below. Checkout the code for more</p>
+
+        <div color-button
+             color-button-color="#FFFFFF"
+             color-button-background="#990000"
+             text-grower
+             text-grower-size="12";
+             text-grower-interval="2000">My cool text</div>
+
+
+        <script src="../dist/bndr.bundle.js"></script>
+        <script>
+            function ColorButton(el, name, options) {
+                var self = this;
+
+                this._options = options;
+                this._name = name;
+                this.el = el;
+                
+                this.el.addEventListener('click', onClick);
+
+                function onClick(event) {
+                    self.el.style.backgroundColor = options.background;
+                    self.el.style.color = options.color;
+                }
+            };
+
+            function TextGrower(el, name, options) {
+                var self = this;
+                this._options = options;
+                this._name = name;
+                this.el = el;
+                this.size = parseInt(options.size || 10);
+
+                this.timer = setInterval(changeTextSize, options.interval);
+
+                changeTextSize();
+                function changeTextSize() {
+                    self.el.style.fontSize = self.size+'px';
+                    self.size++;
+                }
+            };
+
+            bndr.registerClass('color-button', ColorButton);
+            bndr.registerClass('text-grower', TextGrower);
+            bndr(function(components) {
+                console.log(components);
+            });
+        </script>
+
+    </body>
+</html>

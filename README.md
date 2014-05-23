@@ -27,11 +27,11 @@ You'll find the build bndr.js and bndr.min.js in the dist folder.
 HTML
 ```html
 <div my-test
-     my-test-interval="34"
+     my-test-some-var="34"
      my-test-text="some text"></div>
 
 <div my-other
-     my-other-interval="36"
+     my-other-some-other-var="36"
      my-other-text="some other text"></div>
 ```
 
@@ -48,7 +48,7 @@ function MyOther(el, name, options) {
     this._options = options;
     this._name = name;
     this.el = el;
-    el.innerHTML = JSON.stringify(options);
+    el.innerHTML = options.someOtherVar + options.text;
 };
 
 bndr.registerClass('my-test', MyTest);
