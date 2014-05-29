@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>bndr.js - Tooltips</title>
+        <style>
+            .bndr-tooltip {
+                background-color: #000066;
+                color: #FFFFFF;
+                padding: 2px 5px;
+                font-family: Arial;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <p>Tooltips are a great use case for bndr. If you don't want to include bootstrap/jQuery, but just want a nice simple tooltip component, then bndr's declaritive syntax makes it easy. Checkout the code for more</p>
+
+        <p>
+            Lorem ipsum dolor sit amet 
+            <a href=""
+               tooltip
+               tooltip-text="Here is my tool tip text"
+               tooltip-position="top">rollover me</a>
+            dolum consequeter amet dolor lorem.
+        </p>
+
+
+        <script src="../dist/bndr.bundle.js"></script>
+        <script>
+            function Tooltip(el, name, options) {
+                this._options = options;
+                this._name = name;
+                this.el = el;
+
+                el.style.position = 'relative';
+                el.style.display = 'inline-block';
+                el.addEventListener('mouseenter', this.toggle.bind(this, true));
+                el.addEventListener('mouseleave', this.toggle.bind(this, false));
+
+                this._tooltipEl = prepareTooltipEl();
+
+                function prepareTooltipEl() {
+                    var tooltipEl = document.createElement('span');
+                    tooltipEl.style.position = 'absolute';
+                    tooltipEl.style.display = 'block';
+                    tooltipEl.setAttribute('class', 'bndr-tooltip');
+                    tooltipEl.innerHTML = options.text;
+                    return tooltipEl;
+                }
+            }
+
+            Tooltip.prototype.toggle = function Tooltip$toggle(show) {
+                if (show) {
+                    this.el.appendChild(this._tooltipEl);
+                    this._tooltipEl.style.bottom = this.el.offsetHeight + 'px';
+                } else {
+                    this.el.removeChild(this._tooltipEl);
+                }
+            }
+
+            bndr.registerClass('tooltip', Tooltip);
+            bndr(function(components) {
+                console.log(components);
+            });
+        </script>
+
+    </body>
+</html>
